@@ -1,7 +1,11 @@
 QuestionApp::Application.routes.draw do
+  get "profiles/show"
+
   root :to => 'static_pages#welcome'
   devise_for :users
   resources :questions
+  match '/profile', :to => "profiles#show"
+  #match "profile" => "users#show", :as =>"profile"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
