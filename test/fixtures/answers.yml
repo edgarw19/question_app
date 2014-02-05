@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  votes: 1
+  commenter: MyText
+  answer: MyString
+  anonymous: false
+
+two:
+  votes: 1
+  commenter: MyText
+  answer: MyString
+  anonymous: false
