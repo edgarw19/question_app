@@ -1,6 +1,7 @@
 QuestionApp::Application.routes.draw do
   root :to => 'static_pages#welcome'
   devise_for :users
+  resources :questions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
