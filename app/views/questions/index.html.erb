@@ -8,13 +8,6 @@
     </p>
     <p><%= link_to 'read more', question%></p>
     <% end %>
-
-
-    <% end %>
-
     <%= will_paginate %>
-    <% if is_admin? %>
-    <%= link_to 'New Post', new_post_path %>
-    <% end %>
   </div>
 </div>
