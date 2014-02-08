@@ -2,12 +2,22 @@
 
 one:
   votes: 1
+<<<<<<< HEAD
   commenter: MyString
   answer: MyText
+=======
+  commenter: MyText
+  answer: MyString
+>>>>>>> testing
   anonymous: false
 
 two:
   votes: 1
+<<<<<<< HEAD
   commenter: MyString
   answer: MyText
+=======
+  commenter: MyText
+  answer: MyString
+>>>>>>> testing
   anonymous: false

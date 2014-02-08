@@ -7,6 +7,8 @@
       <%= truncate question.text, length: 400 %>
     </p>
     <p><%= link_to 'read more', question%></p>
+    <%= link_to 'edit', edit_question_path(question) %>
+    <%= link_to 'delete question', question_path(question), method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
     <%= will_paginate %>
   </div>
