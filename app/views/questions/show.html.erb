@@ -6,6 +6,10 @@
 		<p>
 			<%= @question.text %>
 		</p>
+		<h3>Answers</h3>
+		<%= render @question.answers %>
+		<h5>Add an answer:</h5>
+		<%= render "answers/form" %>
 		
 		<!--must check the comment item-->
 
