@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :anonymous, :comment, :votes, :writer
-  belongs_to :answers
+  has_many :comments, dependent: :destroy
+  belongs_to :question
+  attr_accessible :anonymous, :answer, :commenter, :votes
 end
+
