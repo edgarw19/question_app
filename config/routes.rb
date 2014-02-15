@@ -1,6 +1,6 @@
 
 QuestionApp::Application.routes.draw do
-  root :to => 'questions#index'
+  root :to => 'static_pages#welcome'
   devise_for :users
   resources :questions do
     resources :answers 
