@@ -1,6 +1,6 @@
 
 QuestionApp::Application.routes.draw do
-  root :to => 'static_pages#welcome'
+  root :to => 'questions#index'
   devise_for :users
   resources :questions do
     resources :answers 
@@ -9,6 +9,7 @@ QuestionApp::Application.routes.draw do
   resources :answers do
     resources :comments 
   end 
+  match '/welcome', :to => "static_pages#welcome"
   match '/profile', :to => "profiles#show"
 
     # The priority is based upon order of creation:

@@ -5,21 +5,37 @@
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
-	<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
-			</head>
-			<div class='wrapper'>
-				<body>
-					<%= yield %>
+	<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	<style>
+	html {
 
-				</body>
-			</div>
+		background: url(http://www.desktop-backgrounds.org/thumbs/2012/11/09/rocks-on-the-beach-hd-wallpaper.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	html *{
+		font-family: 'Exo 2';
+	}
+	body{
+		background: transparent;
+	}
+	h1 {
+
+		color: white;
+	}
+	p {
+		color: white;
+	}
+	</style>
+</head>
+<body>
+	<div class="span7 center">
+		<body style="padding-top:40px">
+			<%= yield %>
+
+			</body.
 		</div>
 		</html>
 
