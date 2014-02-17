@@ -1,6 +1,6 @@
 <div class="container">
 	<% if user_signed_in? %>
-<%= form_for([@answer, @answer.comment.build]) do |f| %>
+<%= form_for([@answer, @comment]) do |f| %>
 
 	<p>
 		<%= f.label :comment %>

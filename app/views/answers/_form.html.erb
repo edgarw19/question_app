@@ -1,13 +1,13 @@
 <div class="container">
 	<% if user_signed_in? %>
-<%= form_for([@question, @question.answers.build]) do |f| %>
+<%= form_for([@question, @answer]) do |f| %>
 
 	<p>
 		<%= f.label :answer %>
 		<%= f.text_area :answer, :cols => "50", :rows => "30"%>
 	</p>
 	<p>
-		<%= f.submit "Submit Comment" %>
+		<%= f.submit "Submit Answer" %>
 	</p>
 <% end %>
 <% else %>

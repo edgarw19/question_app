@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+	before_filter :check_auth, :only => [:edit, :update, :destroy]
 	def new
 		@question = Question.new
 	end
@@ -31,6 +32,7 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.find(params[:id])
+		@answer = @question.answers.new(params[:answer])
 	end
 
 	def destroy
