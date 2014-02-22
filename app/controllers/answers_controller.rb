@@ -14,9 +14,12 @@ class AnswersController < ApplicationController
 	end
 
 	def create
-		@user = current_user
 		@answer = @question.answers.new(params[:answer])
-		@answer.commenter = @user.email
+		if @answer.anonymous == true
+			@answer.commenter = "Anonymous"
+		else
+			@answer.commenter = current_user.username
+		end
 		if @answer.save
 			redirect_to question_path(@question)
 		else

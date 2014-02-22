@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
 	def create
 		@answer = Answer.find(params[:answer_id])
-		@comment = Comment.create(params[:comment], answer: answer)
-			redirect_to question_path(@question)
+		@comment = @answer.comments.new(params[:comment])
+		@comment.writer = current_user.username
+		@comment.save
+			redirect_to question_path(@answer)
 	end
 end

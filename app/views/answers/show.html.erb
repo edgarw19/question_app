@@ -1,13 +1,6 @@
 <%= @answer.answer %>
 
-<%= form_for([@answer, @comment]) do |f| %>
-<p>
-</p>
-	<p>
-		<%= f.label :comment %>
-		<%= f.text_area :answer, :cols => "50", :rows => "30"%>
-	</p>
-	<p>
-		<%= f.submit "Submit Answer" %>
-	</p>
-<% end %>
+
+<%= render "comments/form"%>
+
+<%= render @answer.comments %>

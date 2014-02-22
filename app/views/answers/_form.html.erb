@@ -1,16 +1,20 @@
 <div class="container">
 	<% if user_signed_in? %>
-<%= form_for([@question, @answer]) do |f| %>
+	<%= form_for([@question, @answer]) do |f| %>
 
 	<p>
 		<%= f.label :answer %>
 		<%= f.text_area :answer, :cols => "50", :rows => "30"%>
 	</p>
 	<p>
+				<%= label_tag(:anonymous, "Anonymous")%>
+		<%= f.check_box :anonymous%>
+	</p>
+	<p>
 		<%= f.submit "Submit Answer" %>
 	</p>
-<% end %>
-<% else %>
-<p> <em>You must be signed in to answer</em> </p>
-<% end %>
+	<% end %>
+	<% else %>
+	<p> <em>You must be signed in to answer</em> </p>
+	<% end %>
 </div>

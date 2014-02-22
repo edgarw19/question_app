@@ -3,12 +3,11 @@ QuestionApp::Application.routes.draw do
   root :to => 'static_pages#welcome'
   devise_for :users
   resources :questions do
-    resources :answers 
+    resources :answers do
+        resources :comments
+    end
   end
 
-  resources :answers do
-    resources :comments 
-  end 
   match '/welcome', :to => "static_pages#welcome"
   match '/profile', :to => "profiles#show"
 
