@@ -9,8 +9,30 @@
 		<h5>Add an answer:</h5>
 
 		<h3>Answers</h3>
-		<%= render @question.answers %>
 		<%= render "answers/form" %>
+		<%= render @question.answers %>
+		<% @question.answers.each do |ans| %>
+
+		<div class="container">
+			<div class="row-fluid">
+			</p>
+
+			<p>
+				<%= ans.answer %>
+			</p>
+
+			<h5><em>
+				<%= answer.commenter %> posted 
+				<%= link_to "Answer comments", question_answer_path(question_id: @question.id, id: answer.id) %>
+
+			</em></h5>
+
+		</div>
+	</div>
+	<% end %>
+	<p>
+		
+
 
 		
 		<!--must check the comment item-->

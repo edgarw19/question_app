@@ -9,6 +9,7 @@ class AnswersController < ApplicationController
 	end
 
 	def show
+		@question = Question.find(params[:question_id])
 		@answer = Answer.find(params[:id])
 		@comment = @answer.comments.new(params[:comment])
 	end

@@ -1,5 +1,5 @@
 
-<div class="container", "relative">
+<div class="container">
 	<div class="row-fluid">
 	</p>
 
@@ -9,7 +9,7 @@
 
 	<h5><em>
 		<%= answer.commenter %> posted 
-		<%= link_to "Answer comments", question_answer_path([@question, @answer]) %>
+		<%= link_to "Answer comments", question_answer_path(question_id: @question.id, id: answer.id) %>
 
 	</em></h5>
 
