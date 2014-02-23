@@ -10,7 +10,7 @@
 
 		<h3>Answers</h3>
 		<%= render "answers/form" %>
-		<%= render @question.answers %>
+
 		<% @question.answers.each do |ans| %>
 
 		<div class="container">
@@ -22,8 +22,8 @@
 			</p>
 
 			<h5><em>
-				<%= answer.commenter %> posted 
-				<%= link_to "Answer comments", question_answer_path(question_id: @question.id, id: answer.id) %>
+				<%= ans.commenter %> posted 
+				<%= link_to "Answer comments", [@question,ans] %>
 
 			</em></h5>
 
@@ -31,7 +31,7 @@
 	</div>
 	<% end %>
 	<p>
-		
+
 
 
 		

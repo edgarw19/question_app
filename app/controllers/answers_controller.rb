@@ -21,6 +21,7 @@ class AnswersController < ApplicationController
 		else
 			@answer.commenter = current_user.username
 		end
+		@answer.save
 		if @answer.save
 			redirect_to question_path(@question)
 		else
