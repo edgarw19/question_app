@@ -11,6 +11,10 @@
 		<h3>Answers</h3>
 		<%= render "answers/form" %>
 
+		<% if @question.answers.empty? %>
+		<p> No answers yet. Why don't you add one? </p>
+		<% else %>
+
 		<% @question.answers.each do |ans| %>
 
 		<div class="container">
@@ -21,14 +25,20 @@
 				<%= ans.answer %>
 			</p>
 
-			<h5><em>
-				<%= ans.commenter %> posted 
-				<%= link_to "Answer comments", [@question,ans] %>
+		
 
-			</em></h5>
+			<p>
+				<em><%= ans.commenter %></em> posted 
+			</p>
+			<p><%= ans.likes.size %> | 
+				<%=link_to "vote up", like_question_answer_path([@question],[ans]), method: :put%> | <%=link_to "vote down", dislike_question_answer_path([@question],[ans]), method: :put%>
+				<%= link_to "Answer comments", [@question, ans] %>
+
+			</p>
 
 		</div>
 	</div>
+	<% end %>
 	<% end %>
 	<p>
 

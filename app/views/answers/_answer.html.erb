@@ -7,11 +7,15 @@
 		<%= answer.answer %>
 	</p>
 
-	<h5><em>
-		<%= answer.commenter %> posted 
+	<p>
+		<em><%= answer.commenter %></em> posted  WHY NOTHING HAPPEN<%= question.likes.size %> | 
+		<%=link_to "vote up", like_answer_path(question), method: :put%> | <%=link_to "vote down", dislike_answer_path(question), method: :put%>
 		<%= link_to "Answer comments", answer.id %>
 
-	</em></h5>
+	</p>
+	<p>		
+		<%= link_to "Answer comments", answer.id %>
+	</p>
 
 </div>
 </div>

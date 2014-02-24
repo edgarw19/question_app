@@ -8,6 +8,8 @@
       <%= truncate question.text, length: 400 %>
     </p>
     <p><%= link_to 'read more', question%></p>
+    	<p><%= question.likes.size %> | <%=link_to "vote up", like_question_path(question), method: :put%> | <%=link_to "vote down", dislike_question_path(question), method: :put%></p>
+
     
     <% end %>
     <%= will_paginate %>

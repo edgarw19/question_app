@@ -40,5 +40,17 @@ class QuestionsController < ApplicationController
 		@question.destroy
 		redirect_to questions_path
 	end
+
+	def like
+		@question = Question.find(params[:id])
+		@question.liked_by current_user
+		redirect_to questions_path
+	end
+
+	def dislike
+		@question = Question.find(params[:id])
+		@question.downvote_from current_user
+		redirect_to questions_path
+	end
 end
 

@@ -3,13 +3,27 @@ QuestionApp::Application.routes.draw do
   root :to => 'static_pages#welcome'
   devise_for :users
   resources :questions do
-    resources :answers do
-        resources :comments
+    member do
+        put "like", to: "questions#like"
+        put "dislike", to: "questions#dislike"
     end
-  end
+    resources :answers do
+        member do
+            put "like", to: "answers#like"
+            put "dislike", to: "answers#dislike"
+        end
+        resources :comments do
+           member do
+            put "like", to: "comments#like"
+            put "dislike", to: "comments#dislike"
+        end
+    end
+end
+end
 
-  match '/welcome', :to => "static_pages#welcome"
-  match '/profile', :to => "profiles#show"
+
+match '/welcome', :to => "static_pages#welcome"
+match '/profile', :to => "profiles#show"
 
     # The priority is based upon order of creation:
     # first created -> highest priority.
@@ -67,4 +81,4 @@ QuestionApp::Application.routes.draw do
     # This is a legacy wild controller route that's not recommended for RESTful applications.
     # Note: This route will make all actions in every controller accessible via GET requests.
     # match ':controller(/:action(/:id))(.:format)'
-  end
+end

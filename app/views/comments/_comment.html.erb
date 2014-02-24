@@ -3,4 +3,10 @@
 <%= comment.comment %>
 </p>
 <p> <%= comment.writer %> posted </p>
+
+<p><%= comment.likes.size %> | 
+				<%=link_to "vote up", like_question_answer_comment_path([@question],[@answer], [comment]), method: :put%> | 
+				<%=link_to "vote down", dislike_question_answer_comment_path([@question],[@answer], [comment]), method: :put%>
+
+			</p>
 </div>

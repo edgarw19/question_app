@@ -9,7 +9,6 @@ class AnswersController < ApplicationController
 	end
 
 	def show
-		@question = Question.find(params[:question_id])
 		@answer = Answer.find(params[:id])
 		@comment = @answer.comments.new(params[:comment])
 	end
@@ -27,6 +26,20 @@ class AnswersController < ApplicationController
 		else
 			redirect_to questions_path
 		end
+	end
+
+	def like
+		@answer = Answer.find(params[:id])
+		@answer.liked_by current_user
+		redirect_to question_path(@question)
+
+	end
+
+	def dislike
+		@answer = Answer.find(params[:id])
+		@answer.downvote_from current_user
+		redirect_to question_path(@question)
+
 	end
 
 end
