@@ -1,4 +1,4 @@
-<div class="container", "relative">
+<div class="container; relative; offset1">
 	<div class="row-fluid">
 		<h1><%= @question.query %></h1>
 
@@ -18,12 +18,12 @@
 		<% @question.answers.each do |ans| %>
 
 		<div class="container">
-			<div class="row-fluid">
+			<div style ="border-bottom: 1px solid #888888">
 			</p>
 
-			<p>
+			<h5>
 				<%= ans.answer %>
-			</p>
+			</h5>
 
 		
 
@@ -31,8 +31,7 @@
 				<em><%= ans.commenter %></em> posted 
 			</p>
 			<p><%= ans.likes.size %> | 
-				<%=link_to "vote up", like_question_answer_path([@question],[ans]), method: :put%> | <%=link_to "vote down", dislike_question_answer_path([@question],[ans]), method: :put%>
-				<%= link_to "Answer comments", [@question, ans] %>
+				<%=link_to "vote up", like_question_answer_path([@question],[ans]), method: :put%> | <%=link_to "vote down", dislike_question_answer_path([@question],[ans]), method: :put%> | <%= link_to "Comments", [@question, ans] %>
 
 			</p>
 

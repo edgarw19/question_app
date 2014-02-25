@@ -1,17 +1,17 @@
 <%= will_paginate %>
 <div class="container; offset1">
-<% @questions.each do |question| %>
+	<% @questions.each do |question| %>
 
-  <div class="row-fluid", border-bottom: 1px black>
-    <h1><%= question.query %></h1>
-    <p>
-      <%= truncate question.text, length: 400 %>
-    </p>
-    <p><%= link_to 'read more', question%></p>
-    	<p><%= question.likes.size %> | <%=link_to "vote up", like_question_path(question), method: :put%> | <%=link_to "vote down", dislike_question_path(question), method: :put%></p>
+	<div style="border-bottom: 1px solid #888888">
 
-    
-    <% end %>
-    <%= will_paginate %>
-  </div>
+			<h1><%= question.query %></h1>
+			<p>
+				<%= truncate question.text, length: 400 %>
+			</p>
+			<p><%= link_to 'read more', question%></p>
+			<p><%= question.likes.size %> | <%=link_to "Upvote", like_question_path(question), method: :put%> | <%=link_to "Downvote", dislike_question_path(question), method: :put%></p>
+		</div>
+		<% end %>
+
 </div>
+	<%= will_paginate %>
