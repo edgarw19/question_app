@@ -1,15 +1,16 @@
 <div class="container; relative; offset1">
 	<div class="row-fluid">
-		<h1><%= @question.query %></h1>
+		<h1 style = "color: #FF8C00"><%= @question.query %></h1>
 
 		
-		<p>
+		<h4>
 			<%= @question.text %>
-		</p>
+		</h4>
 		<h5>Add an answer:</h5>
 
-		<h3>Answers</h3>
+
 		<%= render "answers/form" %>
+		<h3 style = "color: #FF8C00">Answers</h3>	
 
 		<% if @question.answers.empty? %>
 		<p> No answers yet. Why don't you add one? </p>
@@ -25,7 +26,7 @@
 				<%= ans.answer %>
 			</h5>
 
-		
+
 
 			<p>
 				<em><%= ans.commenter %></em> posted 

@@ -1,19 +1,25 @@
 <%= will_paginate %>
-<div class="container; offset1">
-	<% @questions.each do |question| %>
-	<div style="padding-top: 10px">
-	</div>
-
-	<div style="bottom-border-solid; box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.5)">
-
-			<h1><%= question.query %></h1>
-			<p>
-				<%= truncate question.text, length: 400 %>
-			</p>
-			<p><%= link_to 'read more', question%></p>
-			<p><%= question.likes.size %> | <%=link_to "Upvote", like_question_path(question), method: :put%> | <%=link_to "Downvote", dislike_question_path(question), method: :put%></p>
-		</div>
-		<% end %>
+<div style="offset1">
+	<h1 style = "color: #FF8C00"><em>Welcome to TigerAnswers. Share and Learn.</em></h1>
 
 </div>
-	<%= will_paginate %>
+<div style = "padding-top: 5px">
+</div>
+
+<% @questions.each do |question| %>
+
+<div class="container; offset1; ">
+	<div style="border-bottom: 2px gray solid">
+
+		<h1 style = "color: #FF8C00"><%= question.query %></h1>
+		<h4>
+			<%= truncate question.text, length: 400 %>
+		</h4>
+		<p><%= link_to 'read more', question%></p>
+		<p><%= question.likes.size %> | <%=link_to "Upvote", like_question_path(question), method: :put%> | <%=link_to "Downvote", dislike_question_path(question), method: :put%></p>
+	</div>
+</div>
+<% end %>
+
+
+<%= will_paginate %>
