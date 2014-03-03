@@ -1,8 +1,10 @@
 <%= will_paginate %>
 <div class="container; offset1">
 	<% @questions.each do |question| %>
+	<div style="padding-top: 10px">
+	</div>
 
-	<div style="border-bottom: 1px solid #888888">
+	<div style="bottom-border-solid; box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.5)">
 
 			<h1><%= question.query %></h1>
 			<p>
