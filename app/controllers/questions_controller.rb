@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def index
-		@questions = Question.paginate(:page => params[:page])
+		@questions = Question.order("cached_votes_up").paginate(:page => params[:page])
 	end
 
 	def show
