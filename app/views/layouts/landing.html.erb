@@ -29,13 +29,16 @@
 		color: white;
 	}
 	</style>
-</head>
-<body>
-	<div class="span7 center">
-		<body style="padding-top:40px">
-			<%= yield %>
 
-			</body.
-		</div>
-		</html>
+</head>
+	<div align="right">
+		<p><%= link_to "Sign In", new_user_session_path %></p>
+	</div>
+<body>
+	<div align="center">
+	<%= yield %>
+</div>
+</body>
+
+</html>
 

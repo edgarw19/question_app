@@ -1,5 +1,11 @@
 class CommentsController < ApplicationController
 	before_filter :get_question
+	before_filter :check_auth, :only => [:show, :index, :edit, :update, :destroy]
+	def check_auth
+		if !user_signed_in?
+			redirect_to welcome_path
+		end
+	end
 	def get_question
 		@question = Question.find(params[:question_id])
 	end
