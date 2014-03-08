@@ -1,5 +1,10 @@
 class QuestionsController < ApplicationController
-	before_filter :check_auth, :only => [:edit, :update, :destroy]
+	before_filter :check_auth, :only => [:show, :index, :edit, :update, :destroy]
+	def check_auth
+		if !user_signed_in?
+			redirect_to welcome_path
+		end
+	end
 	def new
 		@question = Question.new
 	end
@@ -32,7 +37,7 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.find(params[:id])
-		@answer = @question.answers.new(params[:answer])
+		@answer = Answer.new(params[:answer]).tap { |a| a.question = @question }
 	end
 
 	def destroy

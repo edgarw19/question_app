@@ -11,18 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224160254) do
+ActiveRecord::Schema.define(:version => 20140307195607) do
 
   create_table "answers", :force => true do |t|
     t.integer  "votes"
     t.text     "commenter"
     t.string   "answer"
     t.boolean  "anonymous"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "question_id"
+    t.integer  "cached_votes_total",    :default => 0
+    t.integer  "cached_votes_score",    :default => 0
+    t.integer  "cached_votes_up",       :default => 0
+    t.integer  "cached_votes_down",     :default => 0
+    t.integer  "cached_weighted_score", :default => 0
   end
 
+  add_index "answers", ["cached_votes_down"], :name => "index_answers_on_cached_votes_down"
+  add_index "answers", ["cached_votes_score"], :name => "index_answers_on_cached_votes_score"
+  add_index "answers", ["cached_votes_total"], :name => "index_answers_on_cached_votes_total"
+  add_index "answers", ["cached_votes_up"], :name => "index_answers_on_cached_votes_up"
+  add_index "answers", ["cached_weighted_score"], :name => "index_answers_on_cached_weighted_score"
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
   create_table "comments", :force => true do |t|
@@ -40,9 +50,20 @@ ActiveRecord::Schema.define(:version => 20140224160254) do
   create_table "questions", :force => true do |t|
     t.string   "query"
     t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "cached_votes_total",    :default => 0
+    t.integer  "cached_votes_score",    :default => 0
+    t.integer  "cached_votes_up",       :default => 0
+    t.integer  "cached_votes_down",     :default => 0
+    t.integer  "cached_weighted_score", :default => 0
   end
+
+  add_index "questions", ["cached_votes_down"], :name => "index_questions_on_cached_votes_down"
+  add_index "questions", ["cached_votes_score"], :name => "index_questions_on_cached_votes_score"
+  add_index "questions", ["cached_votes_total"], :name => "index_questions_on_cached_votes_total"
+  add_index "questions", ["cached_votes_up"], :name => "index_questions_on_cached_votes_up"
+  add_index "questions", ["cached_weighted_score"], :name => "index_questions_on_cached_weighted_score"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
