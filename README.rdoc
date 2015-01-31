@@ -1,1 +1,1 @@
-Build a Q&A application with user authentication, questions, answers, and comments.
+Build a simple Rails Q&A application with user authentication, questions, answers, and comments. Has basic upvoting system.
